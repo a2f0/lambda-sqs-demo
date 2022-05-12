@@ -5,8 +5,8 @@
         "receiptHandle": "MessageReceiptHandle",
         "body": {
           "token": "drRkHQqGJEdEt3_fQM8Lk8:APA91bE6nlC0qMjDOVAQSNeofCXoGd0GVb1p7BWdfpE8kl-BEoDERVXin4Z-2WKohYToho-asQrRiIcAxkEHnFQjXkQ5z-ftE4VW--RraBvsy8zWk65hlxV_mDuK7_8ZtLw_kXJLli8P",
-          "subject": "subject",
-          "body": "body"
+          "title": "push notification title",
+          "body": "push notification body"
         },
         "attributes": {
           "ApproximateReceiveCount": "1",

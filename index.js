@@ -22,21 +22,26 @@ exports.handler = async (event) => {
 
     for (const element of event.Records) {
       console.log(element.body.token);
-      // const messageObj = {
-      //   apns: {
-      //     payload: {
-      //       aps: {
-      //         'content-available': 1,
-      //         'apns-priority': 10
-      //       }
-      //     }
-      //   },
-      //   notification: { event.title, event.body },
-      //   data: {
-      //     id: uuidv4()
-      //   },
-      //   element.body.token
-      // }
+      console.log(element.body.title);
+      console.log(element.body.body);
+      const title = element.body.title;
+      const body = element.body.body;
+      const token = element.body.token;
+      const messageObj = {
+        apns: {
+          payload: {
+            aps: {
+              'content-available': 1,
+              'apns-priority': 10
+            }
+          }
+        },
+        notification: { title, body },
+        data: {
+          id: uuidv4()
+        },
+        token,
+      }
     }
     
   

@@ -21,9 +21,6 @@ exports.handler = async (event) => {
     }
 
     for (const element of event.Records) {
-      console.log(element.body.token);
-      console.log(element.body.title);
-      console.log(element.body.body);
       const title = element.body.title;
       const body = element.body.body;
       const token = element.body.token;
@@ -42,18 +39,18 @@ exports.handler = async (event) => {
         },
         token,
       }
+      return firebase.messaging()
+        .send(messageObj)
+        .then((response) => {
+        const error = response.results
+        if (error) {
+          console.log(error)
+        } else {
+          console.log('Sent', response)
+        }
+      })
+      .catch((error) => {
+        console.log('Error sending message:', error)
+      })
     }
-    
-  
-    // return admin.messaging()
-    //   .send(messageObj)
-    //   .then((response) => {
-    //     const error = response.results
-    //     if (error) {
-    //       raise error
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.log('Error sending message:', error)
-    //   })
 };

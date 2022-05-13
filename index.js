@@ -19,9 +19,10 @@ exports.handler = async (event) => {
     }
 
     for (const element of event.Records) {
-      const title = element.body.title;
-      const body = element.body.body;
-      const token = element.body.token;
+      const record = JSON.parse(element.body);
+      const title = record.title;
+      const body = record.body;
+      const token = record.token;
       const messageObj = {
         apns: {
           payload: {
